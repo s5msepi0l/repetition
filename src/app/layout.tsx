@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
+import Counter from "./components/counter";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,9 +31,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full h-full`}
       >
         <header className="h-20 bg-gray-800 flex justify-around align-middle">
-          <div className="flex justify-around align-middle h-6 w-80 mt-6">
-            <Link href="/" className="text-gray-100 font-bold text-2xl">Home</Link>
-            <Link href="/about" className="text-gray-100 font-bold text-2xl">About</Link>
+          <div className="flex justify-between align-middle h-6 w-180 mt-6">
+            <div className="flex w-1/4 justify-between">
+              <Link href="/" className="text-gray-100 font-bold text-2xl">Home</Link>
+              <Link href="/about" className="text-gray-100 font-bold text-2xl">About</Link>
+            </div>
+            
+            <Counter/>
           </div>
         </header>
         {children}
